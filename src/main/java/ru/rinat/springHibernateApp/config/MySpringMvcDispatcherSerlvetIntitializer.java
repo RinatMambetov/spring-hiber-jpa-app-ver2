@@ -1,4 +1,4 @@
-package ru.rinat.bookLib.config;
+package ru.rinat.springHibernateApp.config;
 
 import jakarta.servlet.DispatcherType;
 import jakarta.servlet.FilterRegistration;

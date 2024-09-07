@@ -1,4 +1,4 @@
-package ru.rinat.bookLib.controllers;
+package ru.rinat.springHibernateApp.controllers;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,8 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.rinat.bookLib.dao.PersonDAO;
-import ru.rinat.bookLib.models.Person;
+import ru.rinat.springHibernateApp.dao.PersonDAO;
+import ru.rinat.springHibernateApp.models.Person;
 
 @Controller
 @RequestMapping("/people")
