@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update item</title>
+</head>
+<body>
+
+<form th:action="@{/items/{id}(id=${item.getId()})}" th:method="PATCH" th:object="${item}">
+    <label for="itemName">Введите название вещи: </label>
+    <br/>
+    <input id="itemName" th:field="*{itemName}" type="text"/>
+    <div style="color:red" th:errors="*{itemName}" th:if="${#fields.hasErrors('itemName')}">Name Error</div>
+    <br/>
+    <br/>
+    <input type="submit" value="Редактировать"/>
+</form>
+
+</body>
+</html>

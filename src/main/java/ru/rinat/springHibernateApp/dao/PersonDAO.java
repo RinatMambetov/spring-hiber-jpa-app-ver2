@@ -24,7 +24,6 @@ public class PersonDAO {
 
     @Transactional(readOnly = true)
     public List<Person> index() {
-
         return sessionFactory.getCurrentSession()
                 .createQuery("select p from Person p", Person.class).getResultList();
     }

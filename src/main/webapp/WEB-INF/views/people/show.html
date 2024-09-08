@@ -5,12 +5,28 @@
     <title>Show</title>
 </head>
 <body>
+<p th:text="${'Id: ' + person.getId()}">VALUE</p>
 <p th:text="${person.getName() + ', ' + person.getAge()}">VALUE</p>
 <p th:text="${'Email: ' + person.getEmail()}">VALUE</p>
-<p th:text="${person.getId()}">VALUE</p>
 
-<a th:href="@{/people/{id}/edit(id=${person.getId()})}">Edit</a>
-<br>
+<p th:if="not ${items}">
+    Пользователь пока не взял ни одной вещи
+</p>
+
+<div th:if="${items}">
+    <hr/>
+    <h4>Вещи:</h4>
+    <ul style="list-style-type: none; padding: 0; margin: 0;">
+        <li th:each="item : ${items}"
+            th:text="${item.getItemName()}">item
+        </li>
+    </ul>
+</div>
+
+<hr/>
+<form th:action="@{/people/{id}/edit(id=${person.getId()})}" th:method="get">
+    <input type="submit" value="Редактировать"/>
+</form>
 <br>
 <form th:action="@{/people/{id}(id=${person.getId()})}" th:method="DELETE">
     <input type="submit" value="Delete"/>

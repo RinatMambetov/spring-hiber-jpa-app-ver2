@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+
+<p th:text="${item.getItemName()}">VALUE</p>
+
+<div th:if="${person}">
+    <div>Вещь сейчас у пользователя:</div>
+    <br/>
+    <div th:text="${person.getName() + ', ' + person.getAge()}">VALUE</div>
+    <br/>
+    <form th:action="@{/items/{id}/release(id=${item.getId()})}" th:method="patch">
+        <input type="submit" value="Освободить"/>
+    </form>
+</div>
+
+<div th:if="${people}">
+    <div>Эта вещь свободна. Кому назначить?</div>
+    <br/>
+    <form th:action="@{/items/{id}/assign(id=${item.getId()})}" th:method="patch">
+        <label for="person">Выберите пользователя:</label>
+        <br/>
+        <select id="person" name="id" th:object="${person}">
+            <option th:each="person : ${people}" th:text="${person.getName()}" th:value="${person.getId()}">
+            </option>
+        </select>
+        <br/>
+        <br/>
+        <input type="submit" value="Назначить"/>
+    </form>
+</div>
+
+<hr/>
+<form th:action="@{/items/{id}/edit(id=${item.getId()})}" th:method="get">
+    <input type="submit" value="Редактировать"/>
+</form>
+<br/>
+<form th:action="@{/items/{id}(id=${item.getId()})}" th:method="DELETE">
+    <input type="submit" value="Удалить"/>
+</form>
+
+</body>
+</html>

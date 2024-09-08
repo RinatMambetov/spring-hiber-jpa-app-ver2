@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -29,8 +30,8 @@ public class Person {
     @NotEmpty(message = "Email should not be empty")
     @Email
     private String email;
-    
-    @OneToMany(mappedBy = "person", cascade = CascadeType.PERSIST)
+
+    @OneToMany(mappedBy = "person", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Item> items;
 
     public Person() {
@@ -49,11 +50,6 @@ public class Person {
     public void setEmail(String email) {
         this.email = email;
     }
-
-//    public void setItem(Item item) {
-//        items.add(item);
-//        item.setPerson(this);
-//    }
 
     public List<Item> getItems() {
         return items;

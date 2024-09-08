@@ -7,7 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.rinat.springHibernateApp.dao.PersonDAO;
+import ru.rinat.springHibernateApp.models.Item;
 import ru.rinat.springHibernateApp.models.Person;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequestMapping("/people")
@@ -28,7 +32,12 @@ public class PeopleController {
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
-        model.addAttribute("person", personDAO.show(id));
+        Person person = personDAO.show(id);
+        List<Item> items = person.getItems();
+        if (items != null && !items.isEmpty()) {
+            model.addAttribute("items", items);
+        }
+        model.addAttribute("person", person);
         return "people/show";
     }
 
