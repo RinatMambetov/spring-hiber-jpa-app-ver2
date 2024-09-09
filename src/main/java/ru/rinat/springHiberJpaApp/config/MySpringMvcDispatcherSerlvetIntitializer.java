@@ -1,4 +1,4 @@
-package ru.rinat.springHibernateApp.config;
+package ru.rinat.springHiberJpaApp.config;
 
 import jakarta.servlet.DispatcherType;
 import jakarta.servlet.FilterRegistration;

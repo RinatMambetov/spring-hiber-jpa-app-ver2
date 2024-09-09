@@ -1,4 +1,4 @@
-package ru.rinat.springHibernateApp.config;
+package ru.rinat.springHiberJpaApp.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -7,10 +7,14 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
@@ -20,14 +24,14 @@ import org.thymeleaf.spring6.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring6.view.ThymeleafViewResolver;
 
 import javax.sql.DataSource;
-import java.util.Objects;
 import java.util.Properties;
 
 @Configuration
-@ComponentScan("ru.rinat.springHibernateApp")
+@ComponentScan("ru.rinat.springHiberJpaApp")
 @EnableWebMvc
 @PropertySource("classpath:hibernate.properties")
 @EnableTransactionManagement
+@EnableJpaRepositories("ru.rinat.springHiberJpaApp.repositories")
 public class SpringConfig implements WebMvcConfigurer {
     private final ApplicationContext applicationContext;
     private final Environment env;
@@ -85,29 +89,47 @@ public class SpringConfig implements WebMvcConfigurer {
     private Properties hibernateProperties() {
         Properties properties = new Properties();
 
-        properties.put("hibernate.dialect", env.getRequiredProperty("hibernate.dialect"));
+//        properties.put("hibernate.dialect", env.getRequiredProperty("hibernate.dialect"));
         properties.put("hibernate.show_sql", env.getRequiredProperty("hibernate.show_sql"));
 
         return properties;
     }
 
+//    @Bean
+//    public LocalSessionFactoryBean sessionFactory() {
+//        LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
+//
+//        sessionFactoryBean.setDataSource(dataSource());
+//        sessionFactoryBean.setPackagesToScan("ru.rinat.springHibernateApp.models");
+//        sessionFactoryBean.setHibernateProperties(hibernateProperties());
+//
+//        return sessionFactoryBean;
+//    }
+
     @Bean
-    public LocalSessionFactoryBean sessionFactory() {
-        LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+        final LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
+        em.setDataSource(dataSource());
+        em.setPackagesToScan("ru.rinat.springHiberJpaApp.models");
 
-        sessionFactoryBean.setDataSource(dataSource());
-        sessionFactoryBean.setPackagesToScan("ru.rinat.springHibernateApp.models");
-        sessionFactoryBean.setHibernateProperties(hibernateProperties());
+        final HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+        em.setJpaVendorAdapter(vendorAdapter);
+        em.setJpaProperties(hibernateProperties());
 
-        return sessionFactoryBean;
+        return em;
     }
 
+//    @Bean
+//    public HibernateTransactionManager transactionManager() {
+//        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
+//        transactionManager.setSessionFactory(sessionFactory().getObject());
+//        return transactionManager;
+//    }
+
     @Bean
-    public HibernateTransactionManager transactionManager() {
-        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-
-        transactionManager.setSessionFactory(sessionFactory().getObject());
-
-        return transactionManager;
+    public PlatformTransactionManager transactionManager() {
+        JpaTransactionManager jpaTransactionManager = new JpaTransactionManager();
+        jpaTransactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+        return jpaTransactionManager;
     }
 }

@@ -6,7 +6,7 @@
   </component>
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -17,7 +17,7 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="bbdffff4-b880-472b-a176-670010ce2b41">
-      <console name="Connection" type="STANDARD" schema="" session="Main" />
+      <console name="hibernate_demo_db" type="STANDARD" schema="" session="Main" />
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
@@ -36,8 +36,8 @@
     <retain-sticky-names value="false" />
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
-    <mapping file-url="file://$PROJECT_DIR$/src/sql/create.sql" connection-id="bbdffff4-b880-472b-a176-670010ce2b41" session-id="MAIN" current-schema="public" />
     <mapping file-url="file://$PROJECT_DIR$/src/sql/check.sql" connection-id="bbdffff4-b880-472b-a176-670010ce2b41" session-id="MAIN" current-schema="public" />
+    <mapping file-url="file://$PROJECT_DIR$/src/sql/create.sql" connection-id="bbdffff4-b880-472b-a176-670010ce2b41" session-id="MAIN" current-schema="public" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />

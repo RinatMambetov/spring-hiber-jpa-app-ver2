@@ -1,47 +1,46 @@
-package ru.rinat.springHibernateApp.controllers;
+package ru.rinat.springHiberJpaApp.controllers;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.rinat.springHibernateApp.dao.ItemDAO;
-import ru.rinat.springHibernateApp.dao.PersonDAO;
-import ru.rinat.springHibernateApp.models.Item;
-import ru.rinat.springHibernateApp.models.Person;
+import ru.rinat.springHiberJpaApp.models.Item;
+import ru.rinat.springHiberJpaApp.models.Person;
+import ru.rinat.springHiberJpaApp.services.ItemsService;
+import ru.rinat.springHiberJpaApp.services.PeopleService;
 
 import java.util.Optional;
 
 @Controller
 @RequestMapping("/items")
-public class ItemController {
+public class ItemsController {
 
-    private final ItemDAO itemDAO;
-    private final PersonDAO personDAO;
+    private final ItemsService itemsService;
+    private final PeopleService peopleService;
 
     @Autowired
-    public ItemController(ItemDAO itemDAO, PersonDAO personDAO) {
-        this.itemDAO = itemDAO;
-        this.personDAO = personDAO;
+    public ItemsController(ItemsService itemsService, PeopleService peopleService) {
+        this.itemsService = itemsService;
+        this.peopleService = peopleService;
     }
 
     @GetMapping()
     public String index(Model model) {
-        model.addAttribute("items", itemDAO.index());
+        model.addAttribute("items", itemsService.findAll());
         return "items/index";
     }
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
-        model.addAttribute("item", itemDAO.show(id));
+        model.addAttribute("item", itemsService.findOne(id));
 
-        Optional<Person> itemOwner = itemDAO.getOwner(id);
+        Optional<Person> itemOwner = itemsService.getOwner(id);
         if (itemOwner.isPresent()) {
             model.addAttribute("person", itemOwner.get());
         } else {
-            model.addAttribute("people", personDAO.index());
+            model.addAttribute("people", peopleService.findAll());
         }
 
         return "items/show";
@@ -58,13 +57,13 @@ public class ItemController {
         if (bindingResult.hasErrors())
             return "items/new";
 
-        itemDAO.save(item);
+        itemsService.save(item);
         return "redirect:/items";
     }
 
     @GetMapping("/{id}/edit")
     public String edit(Model model, @PathVariable("id") int id) {
-        model.addAttribute("item", itemDAO.show(id));
+        model.addAttribute("item", itemsService.findOne(id));
         return "items/edit";
     }
 
@@ -75,25 +74,25 @@ public class ItemController {
         if (bindingResult.hasErrors())
             return "items/edit";
 
-        itemDAO.update(id, item);
+        itemsService.update(id, item);
         return "redirect:/items";
     }
 
     @DeleteMapping("/{id}")
     public String delete(@PathVariable("id") int id) {
-        itemDAO.delete(id);
+        itemsService.delete(id);
         return "redirect:/items";
     }
 
     @PatchMapping("/{id}/release")
     public String release(@PathVariable("id") int id) {
-        itemDAO.release(id);
+        itemsService.release(id);
         return "redirect:/items/" + id;
     }
-    
+
     @PatchMapping("/{id}/assign")
     public String assign(@PathVariable("id") int id, @ModelAttribute("person") Person person) {
-        itemDAO.assign(id, person);
+        itemsService.assign(id, person);
         return "redirect:/items/" + id;
     }
 }

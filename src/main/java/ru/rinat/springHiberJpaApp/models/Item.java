@@ -1,4 +1,4 @@
-package ru.rinat.springHibernateApp.models;
+package ru.rinat.springHiberJpaApp.models;
 
 import jakarta.persistence.*;
 
