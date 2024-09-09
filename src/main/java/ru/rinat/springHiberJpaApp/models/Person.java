@@ -1,10 +1,7 @@
 package ru.rinat.springHiberJpaApp.models;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
@@ -92,6 +89,8 @@ public class Person {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", email='" + email + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", createdAt=" + createdAt +
                 '}';
     }
 

@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import ru.rinat.springHiberJpaApp.models.Item;
 import ru.rinat.springHiberJpaApp.models.Person;
 import ru.rinat.springHiberJpaApp.services.PeopleService;
+import ru.rinat.springHiberJpaApp.util.PersonValidator;
+//import ru.rinat.springHiberJpaApp.util.PersonValidator;
 
 import java.util.List;
 
@@ -17,10 +19,12 @@ import java.util.List;
 public class PeopleController {
 
     private final PeopleService peopleService;
+    private final PersonValidator personValidator;
 
     @Autowired
-    public PeopleController(PeopleService peopleService) {
+    public PeopleController(PeopleService peopleService, PersonValidator personValidator) {
         this.peopleService = peopleService;
+        this.personValidator = personValidator;
     }
 
     @GetMapping()
@@ -48,6 +52,8 @@ public class PeopleController {
     @PostMapping()
     public String create(@ModelAttribute("person") @Valid Person person,
                          BindingResult bindingResult) {
+        personValidator.validate(person, bindingResult);
+
         if (bindingResult.hasErrors())
             return "people/new";
 
@@ -64,6 +70,8 @@ public class PeopleController {
     @PatchMapping("/{id}")
     public String update(@ModelAttribute("person") @Valid Person person, BindingResult bindingResult,
                          @PathVariable("id") int id) {
+        personValidator.validate(person, bindingResult);
+
         if (bindingResult.hasErrors())
             return "people/edit";
 

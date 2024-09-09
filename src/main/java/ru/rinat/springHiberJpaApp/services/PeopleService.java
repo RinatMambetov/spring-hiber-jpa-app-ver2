@@ -27,6 +27,10 @@ public class PeopleService {
         return peopleRepository.findById(id).orElse(null);
     }
 
+    public List<Person> findByEmail(String name) {
+        return peopleRepository.findByEmail(name);
+    }
+
     @Transactional
     public void save(Person person) {
         person.setCreatedAt(new Date());
