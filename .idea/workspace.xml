@@ -5,22 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09ae5370-67bd-4c44-9aa8-d9cd7acc9d20" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/repositories/ItemsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/repositories/PeopleRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/services/ItemsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/services/PeopleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rinat/springHibernateApp/config/MySpringMvcDispatcherSerlvetIntitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/config/MySpringMvcDispatcherSerlvetIntitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rinat/springHibernateApp/config/SpringConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/config/SpringConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rinat/springHibernateApp/controllers/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/controllers/ItemsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rinat/springHibernateApp/controllers/PeopleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/controllers/PeopleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rinat/springHibernateApp/dao/ItemDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rinat/springHibernateApp/dao/PersonDAO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rinat/springHibernateApp/models/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/models/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rinat/springHibernateApp/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/models/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/models/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/services/PeopleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/services/PeopleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/new.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/people/new.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sql/create.sql" beforeDir="false" afterPath="$PROJECT_DIR$/src/sql/create.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +30,11 @@
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="LogFilters">
@@ -67,7 +63,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Smart Tomcat.Tomcat10.executor": "Run",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "hibernate-additional-features",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/rinat/IdeaProjects/spring-hiber-jpa-app",
     "project.structure.last.edited": "Modules",
@@ -99,7 +95,7 @@
       <predefined_log_file id="Tomcat Catalina Log" />
       <predefined_log_file id="Tomcat Manager Log" />
       <predefined_log_file id="Tomcat Host Manager Log" />
-      <option name="catalinaBase" value="$USER_HOME$/.SmartTomcat/project1-book-lib/project1-book-lib" />
+      <option name="catalinaBase" value="$USER_HOME$/.SmartTomcat/" />
       <option name="contextPath" value="/" />
       <option name="docBase" value="$PROJECT_DIR$/src/main/webapp" />
       <option name="envOptions">
@@ -130,5 +126,16 @@
       <updated>1724506472923</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

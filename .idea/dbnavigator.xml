@@ -36,8 +36,9 @@
     <retain-sticky-names value="false" />
   </component>
   <component name="DBNavigator.Project.FileConnectionMappingManager">
-    <mapping file-url="file://$PROJECT_DIR$/src/sql/check.sql" connection-id="bbdffff4-b880-472b-a176-670010ce2b41" session-id="MAIN" current-schema="public" />
     <mapping file-url="file://$PROJECT_DIR$/src/sql/create.sql" connection-id="bbdffff4-b880-472b-a176-670010ce2b41" session-id="MAIN" current-schema="public" />
+    <mapping file-url="file://$PROJECT_DIR$/src/sql/drop.sql" connection-id="bbdffff4-b880-472b-a176-670010ce2b41" session-id="MAIN" current-schema="public" />
+    <mapping file-url="file://$PROJECT_DIR$/src/sql/check.sql" connection-id="bbdffff4-b880-472b-a176-670010ce2b41" session-id="MAIN" current-schema="public" />
   </component>
   <component name="DBNavigator.Project.MethodExecutionManager">
     <method-browser />
@@ -55,7 +56,7 @@
     <connections>
       <connection id="bbdffff4-b880-472b-a176-670010ce2b41" active="true" signed="true">
         <database>
-          <name value="hibernate_demo_db" />
+          <name value="hibernate_demo_db2" />
           <description value="" />
           <database-type value="POSTGRES" />
           <config-type value="BASIC" />
@@ -66,7 +67,7 @@
           <url-type value="DATABASE" />
           <host value="localhost" />
           <port value="5432" />
-          <database value="hibernate_demo_db" />
+          <database value="hibernate_demo_db2" />
           <tns-folder value="" />
           <tns-profile value="" />
           <type value="NONE" />

@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.rinat.springHiberJpaApp.models.Person;
 import ru.rinat.springHiberJpaApp.repositories.PeopleRepository;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -28,6 +29,7 @@ public class PeopleService {
 
     @Transactional
     public void save(Person person) {
+        person.setCreatedAt(new Date());
         peopleRepository.save(person);
     }
 

@@ -28,3 +28,10 @@ values
 (3, 'watermelon')
 
 alter table person add column email varchar(100) unique
+
+--date without time
+alter table person add column date_of_birth date;
+
+--in sec before or after 01012000
+alter table person add column created_at timestamp;
+
