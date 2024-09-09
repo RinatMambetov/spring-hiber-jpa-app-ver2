@@ -8,6 +8,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.rinat.springHiberJpaApp.models.Item;
 import ru.rinat.springHiberJpaApp.models.Person;
+import ru.rinat.springHiberJpaApp.services.ItemsService;
 import ru.rinat.springHiberJpaApp.services.PeopleService;
 
 import java.util.List;
@@ -17,15 +18,23 @@ import java.util.List;
 public class PeopleController {
 
     private final PeopleService peopleService;
+    private final ItemsService itemsService;
 
     @Autowired
-    public PeopleController(PeopleService peopleService) {
+    public PeopleController(PeopleService peopleService, ItemsService itemsService) {
         this.peopleService = peopleService;
+        this.itemsService = itemsService;
     }
 
     @GetMapping()
     public String index(Model model) {
         model.addAttribute("people", peopleService.findAll());
+
+        // testing
+        itemsService.findByItemName("banana");
+        itemsService.findByOwner(peopleService.findOne(1));
+        peopleService.test();
+
         return "people/index";
     }
 

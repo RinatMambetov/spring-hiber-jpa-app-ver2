@@ -72,4 +72,12 @@ public class ItemsService {
         items.add(item);
         update(id, item);
     }
+
+    public List<Item> findByItemName(String itemName) {
+        return itemsRepository.findByItemName(itemName);
+    }
+
+    public List<Item> findByOwner(Person person) {
+        return itemsRepository.findByPerson(person);
+    }
 }

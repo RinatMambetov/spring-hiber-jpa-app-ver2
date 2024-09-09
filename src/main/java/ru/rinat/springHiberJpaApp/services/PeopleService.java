@@ -41,4 +41,9 @@ public class PeopleService {
     public void delete(int id) {
         peopleRepository.deleteById(id);
     }
+
+    // for debug and testing functions in repository
+    public void test() {
+        System.out.println("Testing here with Debug inside Hibernate Transaction");
+    }
 }
