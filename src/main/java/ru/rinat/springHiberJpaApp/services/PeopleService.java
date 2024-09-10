@@ -1,5 +1,6 @@
 package ru.rinat.springHiberJpaApp.services;
 
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -41,10 +42,7 @@ public class PeopleService {
     public Person findOne(int id) {
         Optional<Person> person = peopleRepository.findById(id);
 //        this because person fetch is lazy
-        if (person.isPresent()) {
-            List<Item> items = person.get().getItems();
-            System.out.println(items);
-        }
+        person.ifPresent(value -> Hibernate.initialize(value.getItems()));
         return person.orElse(null);
     }
 

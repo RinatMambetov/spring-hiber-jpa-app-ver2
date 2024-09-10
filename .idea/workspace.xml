@@ -5,11 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="09ae5370-67bd-4c44-9aa8-d9cd7acc9d20" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/67 Пагинация и сортировка.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/controllers/PeopleController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/controllers/PeopleController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/models/Person.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/services/PeopleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/rinat/springHiberJpaApp/services/PeopleService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -65,7 +60,7 @@
     "Smart Tomcat.Tomcat10.executor": "Run",
     "git-widget-placeholder": "hibernate-additional-features",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/rinat/IdeaProjects/spring-hiber-jpa-app",
+    "last_opened_file_path": "/Users/rinat/IdeaProjects/spring-hiber-jpa-app2",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -75,6 +70,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/views" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/src/main/resources" />
