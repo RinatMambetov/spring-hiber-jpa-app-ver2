@@ -6,11 +6,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import ru.rinat.springHiberJpaApp.dao.PersonDAO;
 import ru.rinat.springHiberJpaApp.models.Item;
 import ru.rinat.springHiberJpaApp.models.Person;
 import ru.rinat.springHiberJpaApp.services.PeopleService;
 import ru.rinat.springHiberJpaApp.util.PersonValidator;
-//import ru.rinat.springHiberJpaApp.util.PersonValidator;
 
 import java.util.List;
 
@@ -20,16 +20,21 @@ public class PeopleController {
 
     private final PeopleService peopleService;
     private final PersonValidator personValidator;
+    private final PersonDAO personDAO;
 
     @Autowired
-    public PeopleController(PeopleService peopleService, PersonValidator personValidator) {
+    public PeopleController(PeopleService peopleService, PersonValidator personValidator, PersonDAO personDAO) {
         this.peopleService = peopleService;
         this.personValidator = personValidator;
+        this.personDAO = personDAO;
     }
 
     @GetMapping()
     public String index(Model model) {
-        model.addAttribute("people", peopleService.findAll());
+//        model.addAttribute("people", peopleService.findAll());
+
+        personDAO.testNPlus1();
+
         return "people/index";
     }
 

@@ -40,4 +40,5 @@ alter table person add column mood int;
 
 alter table person drop column mood;
 
+--if string enum
 alter table person add column mood varchar;
