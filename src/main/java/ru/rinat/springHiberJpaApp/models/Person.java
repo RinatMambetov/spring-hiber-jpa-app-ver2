@@ -46,6 +46,10 @@ public class Person {
     @Enumerated(EnumType.STRING)
     private Mood mood;
 
+    //    not save in db
+    @Transient
+    private int weight;
+
     public Person() {
     }
 

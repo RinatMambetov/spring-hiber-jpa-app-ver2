@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.rinat.bookLib</groupId>
-    <artifactId>spring-hiber-jpa-app</artifactId>
+    <artifactId>spring-hiber-jpa-app2</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>spring-hiber-jpa-app Maven Webapp</name>
+    <name>spring-hiber-jpa-app2 Maven Webapp</name>
     <!-- FIXME change it to the project's website -->
     <url>http://www.rinat.ru</url>
 

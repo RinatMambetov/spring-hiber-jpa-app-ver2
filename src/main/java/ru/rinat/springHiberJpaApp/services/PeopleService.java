@@ -1,6 +1,8 @@
 package ru.rinat.springHiberJpaApp.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.rinat.springHiberJpaApp.models.Item;
@@ -23,7 +25,17 @@ public class PeopleService {
     }
 
     public List<Person> findAll() {
-        return peopleRepository.findAll();
+//        return peopleRepository.findAll();
+
+//        pagination
+//        return peopleRepository.findAll(PageRequest.of(0, 3)).getContent();
+
+//        sorting
+//        return peopleRepository.findAll(Sort.by("age"));
+
+//        combo
+        return peopleRepository.findAll(PageRequest.of(1, 6, Sort.by("age")))
+                .getContent();
     }
 
     public Person findOne(int id) {
