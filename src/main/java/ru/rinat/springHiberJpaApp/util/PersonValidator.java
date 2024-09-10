@@ -6,10 +6,6 @@ import org.springframework.validation.Validator;
 import ru.rinat.springHiberJpaApp.models.Person;
 import ru.rinat.springHiberJpaApp.services.PeopleService;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 @Component
 public class PersonValidator implements Validator {
     private final PeopleService peopleService;

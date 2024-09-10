@@ -34,12 +34,16 @@ public class Person {
 
     @Column(name = "date_of_birth")
     @Temporal(TemporalType.DATE)
-    @DateTimeFormat(pattern = "dd/MM/yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date dateOfBirth;
 
     @Column(name = "created_at")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
+
+    //    @Enumerated(EnumType.ORDINAL)
+    @Enumerated(EnumType.STRING)
+    private Mood mood;
 
     public Person() {
     }
@@ -48,6 +52,14 @@ public class Person {
         this.name = name;
         this.age = age;
         this.email = email;
+    }
+
+    public Mood getMood() {
+        return mood;
+    }
+
+    public void setMood(Mood mood) {
+        this.mood = mood;
     }
 
     public Date getDateOfBirth() {
@@ -91,6 +103,7 @@ public class Person {
                 ", email='" + email + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", createdAt=" + createdAt +
+                ", mood=" + mood +
                 '}';
     }
 

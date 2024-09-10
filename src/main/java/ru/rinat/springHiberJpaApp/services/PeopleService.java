@@ -3,6 +3,7 @@ package ru.rinat.springHiberJpaApp.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.rinat.springHiberJpaApp.models.Mood;
 import ru.rinat.springHiberJpaApp.models.Person;
 import ru.rinat.springHiberJpaApp.repositories.PeopleRepository;
 
@@ -33,6 +34,7 @@ public class PeopleService {
 
     @Transactional
     public void save(Person person) {
+        person.setMood(Mood.HAPPY);
         person.setCreatedAt(new Date());
         peopleRepository.save(person);
     }
@@ -40,6 +42,7 @@ public class PeopleService {
     @Transactional
     public void update(int id, Person person) {
         person.setId(id);
+        person.setCreatedAt(new Date());
         peopleRepository.save(person);
     }
 

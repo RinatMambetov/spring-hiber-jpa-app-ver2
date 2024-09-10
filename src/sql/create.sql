@@ -27,7 +27,7 @@ values
 (3,'strawberry'),
 (3, 'watermelon')
 
-alter table person add column email varchar(100) unique
+alter table person add column email varchar(100) unique;
 
 --date without time
 alter table person add column date_of_birth date;
@@ -35,3 +35,9 @@ alter table person add column date_of_birth date;
 --in sec before or after 01012000
 alter table person add column created_at timestamp;
 
+--if ordinal enum
+alter table person add column mood int;
+
+alter table person drop column mood;
+
+alter table person add column mood varchar;
